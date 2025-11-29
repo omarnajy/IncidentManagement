@@ -1,0 +1,30 @@
+# Fichiers compilés
+*.class
+out/
+production/
+target/
+
+# IntelliJ IDEA
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/shelf/
+*.iml
+
+# VS Code
+.vscode/
+
+# Fichiers sensibles - NE JAMAIS PUSH
+src/main/java/dao/DBconnection.java
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Images temporaires
+*.png
+*.jpg
+*.jpeg
