@@ -75,7 +75,7 @@ public class IncidentDialog extends JDialog {
         headerPanel.setBackground(SECONDARY_COLOR);
         headerPanel.setBorder(BorderFactory.createEmptyBorder(15, 20, 15, 20));
 
-        String emoji = incident == null ? "➕" : "✏️";
+        String emoji = incident == null ? "➕" : "";
         String title = incident == null ? "Create New Incident" : "Update Incident Details";
 
         JLabel titleLabel = new JLabel(emoji + " " + title);
@@ -232,10 +232,10 @@ public class IncidentDialog extends JDialog {
         buttonPanel.setBackground(BACKGROUND_COLOR);
 
         JButton saveBtn = createStyledButton(
-                incident == null ? "💾 Save Incident" : "💾 Update Incident",
+                incident == null ? " Save Incident" : " Update Incident",
                 ACCENT_COLOR
         );
-        JButton cancelBtn = createStyledButton("❌ Cancel", DANGER_COLOR);
+        JButton cancelBtn = createStyledButton(" Cancel", DANGER_COLOR);
 
         saveBtn.addActionListener(e -> saveIncident());
         cancelBtn.addActionListener(e -> dispose());

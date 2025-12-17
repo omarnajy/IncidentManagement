@@ -32,7 +32,7 @@ public class MainWindow extends JFrame {
         IncidentModel model = new IncidentModel(new IncidentDAOImpl());
         controller = new IncidentController(model);
 
-        setTitle("🔒 Incident Management System");
+        setTitle(" Incident Management System");
         setSize(1200, 700);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -77,7 +77,7 @@ public class MainWindow extends JFrame {
         headerPanel.setBackground(HEADER_COLOR);
         headerPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        JLabel titleLabel = new JLabel("🔒 Incident Management System");
+        JLabel titleLabel = new JLabel(" Incident Management System");
         titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 28));
         titleLabel.setForeground(Color.WHITE);
 
@@ -200,11 +200,11 @@ public class MainWindow extends JFrame {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 5));
         buttonPanel.setBackground(BACKGROUND_COLOR);
 
-        JButton addBtn = createStyledButton("➕ Add Incident", ACCENT_COLOR);
-        JButton updateBtn = createStyledButton("✏️ Update", PRIMARY_COLOR);
-        JButton deleteBtn = createStyledButton("🗑️ Delete", DANGER_COLOR);
-        JButton searchBtn = createStyledButton("🔍 Search", new Color(155, 89, 182));
-        JButton refreshBtn = createStyledButton("🔄 Refresh", SECONDARY_COLOR);
+        JButton addBtn = createStyledButton(" Add Incident", ACCENT_COLOR);
+        JButton updateBtn = createStyledButton(" Update", PRIMARY_COLOR);
+        JButton deleteBtn = createStyledButton(" Delete", DANGER_COLOR);
+        JButton searchBtn = createStyledButton(" Search", new Color(155, 89, 182));
+        JButton refreshBtn = createStyledButton(" Refresh", SECONDARY_COLOR);
 
         addBtn.addActionListener(e -> openAddDialog());
         updateBtn.addActionListener(e -> openUpdateDialog());
@@ -291,7 +291,7 @@ public class MainWindow extends JFrame {
 
     private void updateStatusBar(int count) {
         if (statusLabel != null) {
-            statusLabel.setText("Ready | Total Incidents: " + count);
+            statusLabel.setText(" Total Incidents: " + count);
         }
     }
 
