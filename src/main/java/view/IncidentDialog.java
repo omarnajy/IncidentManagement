@@ -1,13 +1,12 @@
 package view;
 
 import controller.IncidentController;
-import model.Incident;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import model.Incident;
 
 public class IncidentDialog extends JDialog {
 
@@ -52,18 +51,18 @@ public class IncidentDialog extends JDialog {
         mainPanel.setBackground(BACKGROUND_COLOR);
         mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        // ========== HEADER ==========
+        //  HEADER 
         JPanel headerPanel = createHeaderPanel();
         mainPanel.add(headerPanel, BorderLayout.NORTH);
 
-        // ========== FORM PANEL ==========
+        //  FORM PANEL 
         JPanel formPanel = createFormPanel();
         JScrollPane scrollPane = new JScrollPane(formPanel);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
         mainPanel.add(scrollPane, BorderLayout.CENTER);
 
-        // ========== BUTTON PANEL ==========
+        //  BUTTON PANEL 
         JPanel buttonPanel = createButtonPanel();
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 

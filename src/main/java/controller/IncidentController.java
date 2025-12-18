@@ -13,9 +13,7 @@ public class IncidentController {
         this.model = model;
     }
 
-    // -----------------------------------------------------------
     // ADD INCIDENT
-    // -----------------------------------------------------------
     public void addIncident(String title, String description,
                             Incident.IncidentType type, Incident.Risk risk,
                             Incident.Status status, Date reportedDate,
