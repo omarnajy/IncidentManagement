@@ -15,17 +15,13 @@ public class IncidentModel {
         this.incidents = dao.findAll(); // Load existing incidents from DB
     }
 
-    // -----------------------------------------------------------
     // GET ALL INCIDENTS
-    // -----------------------------------------------------------
     public List<Incident> getAllIncidents() {
         incidents = dao.findAll(); // refresh from DB
         return incidents;
     }
 
-    // -----------------------------------------------------------
     // ADD INCIDENT
-    // -----------------------------------------------------------
     public void addIncident(String title, String description,
                             Incident.IncidentType type, Incident.Risk risk,
                             Incident.Status status, Date reportedDate,
@@ -39,9 +35,7 @@ public class IncidentModel {
         incidents.add(incident);
     }
 
-    // -----------------------------------------------------------
     // UPDATE INCIDENT
-    // -----------------------------------------------------------
     public void updateIncident(Incident incident) {
         // FIX: Removed the second parameter (idIgnored) to match the new DAO signature.
         dao.update(incident);
@@ -55,24 +49,18 @@ public class IncidentModel {
         }
     }
 
-    // -----------------------------------------------------------
     // DELETE INCIDENT
-    // -----------------------------------------------------------
     public void deleteIncident(Long incidentId) {
         dao.delete(incidentId);
         incidents.removeIf(i -> i.getIncidentId() != null && i.getIncidentId().equals(incidentId));
     }
 
-    // -----------------------------------------------------------
     // GET INCIDENT BY ID
-    // -----------------------------------------------------------
     public Incident getIncidentById(Long incidentId) {
         return dao.findById(incidentId);
     }
 
-    // -----------------------------------------------------------
     // SEARCH INCIDENTS
-    // -----------------------------------------------------------
     public List<Incident> searchIncidents(String keyword) {
         if (keyword == null || keyword.isEmpty()) return getAllIncidents();
 
@@ -90,9 +78,7 @@ public class IncidentModel {
         return results;
     }
 
-    // -----------------------------------------------------------
     // FILTER INCIDENTS
-    // -----------------------------------------------------------
     public List<Incident> filterIncidents(Incident.Status status,
                                           Incident.Risk risk,
                                           Incident.IncidentType type) {

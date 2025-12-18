@@ -1,21 +1,17 @@
 package dao;
 
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import model.Incident;
 import model.Incident.IncidentType;
 import model.Incident.Risk;
 import model.Incident.Status;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-
 public class IncidentDAOImpl implements GenericDAO<Incident> {
 
-    // Removed the private final Connection conn field,
-    // Connection is now opened/closed per operation.
 
     public IncidentDAOImpl() {
-        // Constructor is now clean, no connection is held here.
     }
 
     // Helper method to get and close connection
@@ -23,9 +19,7 @@ public class IncidentDAOImpl implements GenericDAO<Incident> {
         return DBconnection.getConnection();
     }
 
-    // -----------------------------------------------------------
     // FIND ALL (Connection fixed)
-    // -----------------------------------------------------------
     @Override
     public List<Incident> findAll() {
         List<Incident> list = new ArrayList<>();
@@ -47,9 +41,7 @@ public class IncidentDAOImpl implements GenericDAO<Incident> {
         return list;
     }
 
-    // -----------------------------------------------------------
     // FIND BY ID (Connection fixed)
-    // -----------------------------------------------------------
     @Override
     public Incident findById(Long id) {
         String sql = "SELECT * FROM incidents WHERE incident_id = ?";
@@ -71,9 +63,7 @@ public class IncidentDAOImpl implements GenericDAO<Incident> {
         return null;
     }
 
-    // -----------------------------------------------------------
     // INSERT (Connection fixed)
-    // -----------------------------------------------------------
     @Override
     public Long add(Incident incident) {
         String sql = "INSERT INTO incidents " +
@@ -88,7 +78,6 @@ public class IncidentDAOImpl implements GenericDAO<Incident> {
             ps.setString(3, incident.getType().name());
             ps.setString(4, incident.getRisk().name());
             ps.setString(5, incident.getStatus().name());
-            // Using setTimestamp is correct for java.util.Date when storing date and time
             ps.setTimestamp(6, new Timestamp(incident.getReportedDate().getTime()));
             ps.setString(7, incident.getAssignedTo());
             ps.setString(8, incident.getResolutionNotes());
@@ -109,9 +98,7 @@ public class IncidentDAOImpl implements GenericDAO<Incident> {
         return null;
     }
 
-    // -----------------------------------------------------------
     // UPDATE (Signature and Connection fixed)
-    // -----------------------------------------------------------
     @Override
     public void update(Incident incident) {
         String sql = "UPDATE incidents SET title=?, description=?, type=?, risk=?, status=?, " +
@@ -137,9 +124,7 @@ public class IncidentDAOImpl implements GenericDAO<Incident> {
         }
     }
 
-    // -----------------------------------------------------------
     // DELETE (Connection fixed)
-    // -----------------------------------------------------------
     @Override
     public void delete(Long id) {
         String sql = "DELETE FROM incidents WHERE incident_id=?";
@@ -155,11 +140,9 @@ public class IncidentDAOImpl implements GenericDAO<Incident> {
         }
     }
 
-    // -----------------------------------------------------------
     // RESULTSET MAPPING (Unchanged, remains correct)
-    // -----------------------------------------------------------
     private Incident mapResultSetToIncident(ResultSet rs) throws SQLException {
-        // ... (mapping logic remains the same)
+       
         return new Incident(
             rs.getLong("incident_id"),
                 rs.getString("title"),

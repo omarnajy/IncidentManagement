@@ -1,10 +1,9 @@
 package controller;
 
-import model.Incident;
-import model.IncidentModel;
-
 import java.util.Date;
 import java.util.List;
+import model.Incident;
+import model.IncidentModel;
 
 public class IncidentController {
 
@@ -34,9 +33,7 @@ public class IncidentController {
         model.addIncident(title, description, type, risk, status, reportedDate, assignedTo, resolutionNotes);
     }
 
-    // -----------------------------------------------------------
     // UPDATE INCIDENT
-    // -----------------------------------------------------------
     public void updateIncident(Incident incident) {
         if (incident.getIncidentId() == null)
             throw new IllegalArgumentException("Incident ID cannot be empty");
@@ -44,9 +41,7 @@ public class IncidentController {
         model.updateIncident(incident);
     }
 
-    // -----------------------------------------------------------
     // DELETE INCIDENT
-    // -----------------------------------------------------------
     public void deleteIncident(Long incidentId) {
         if (incidentId == null)
             throw new IllegalArgumentException("Incident ID cannot be empty");
@@ -54,30 +49,24 @@ public class IncidentController {
         model.deleteIncident(incidentId);
     }
 
-    // -----------------------------------------------------------
     // GET INCIDENT BY ID
-    // -----------------------------------------------------------
     public Incident getIncidentById(Long incidentId) {
         return model.getIncidentById(incidentId);
     }
 
-    // -----------------------------------------------------------
     // GET ALL INCIDENTS
-    // -----------------------------------------------------------
     public List<Incident> getAllIncidents() {
         return model.getAllIncidents();
     }
 
-    // -----------------------------------------------------------
+
     // SEARCH INCIDENTS BY KEYWORD
-    // -----------------------------------------------------------
     public List<Incident> searchIncidents(String keyword) {
         return model.searchIncidents(keyword);
     }
 
-    // -----------------------------------------------------------
+
     // FILTER INCIDENTS
-    // -----------------------------------------------------------
     public List<Incident> filterIncidents(Incident.Status status,
                                           Incident.Risk risk,
                                           Incident.IncidentType type) {
